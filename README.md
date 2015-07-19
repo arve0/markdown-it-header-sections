@@ -34,7 +34,15 @@ to this output (without indentation)
 
 If you add [anchor] or any plugin that adds attributes to header-tokens, sections will have the same attributes (which is useful for styling).
 
-E.g. with [anchor] enabled before header-sections:
+E.g., with [anchor] enabled before header-sections:
+
+```js
+var md = require('markdown-it')()
+  .use(require('markdown-it-anchor'))
+  .use(require('markdown-it-header-sections'))
+```
+
+this markdown
 ```md
 # great stuff
 lorem
