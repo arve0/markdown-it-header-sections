@@ -1,0 +1,29 @@
+{
+  "name": "markdown-it-header-sections",
+  "version": "0.0.1",
+  "description": "add sections to markdown headers",
+  "main": "index.js",
+  "dependencies": {
+    "markdown-it-for-inline": "^0.1.1",
+    "lodash.assign": "^3.2.0",
+    "markdown-it": "^4.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arve0/markdown-it-header-sections.git"
+  },
+  "keywords": [
+    "markdown-it",
+    "markdown-it-plugin"
+  ],
+  "author": "Arve Seljebu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arve0/markdown-it-header-sections/issues"
+  },
+  "homepage": "https://github.com/arve0/markdown-it-header-sections#readme"
+}
