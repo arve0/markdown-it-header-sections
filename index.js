@@ -1,7 +1,6 @@
 
 module.exports = function headerSections(md){
 
-
   function addSections(state){
     var tokens = [];  // output
     var Token = state.Token;
@@ -11,13 +10,13 @@ module.exports = function headerSections(md){
       t.block = true;
       return t;
     }
+
     function openSection(attrs){
       var t = new Token('section_open', 'section', 1);
       t.block = true;
       t.attrs = attrs;
       return t;
     }
-
 
     var currentLevel = 0;
     for (var i = 0, l = state.tokens.length; i < l; i++) {

@@ -32,8 +32,20 @@ to this output (without indentation)
 </section>
 ```
 
-Add [anchor] or any plugin that adds attributes to header-tokens if you would like to add identifiers the sections.
+If you add [anchor] or any plugin that adds attributes to header-tokens, sections will have the same attributes (which is useful for styling).
 
-E.g. with anchor enabled, `# great stuff` renders to `<section id="great-stuff"><h1 id="great-stuff">great stuff</h1></section>` with [anchor] added before this plugin.
+E.g. with [anchor] enabled before header-sections:
+```md
+# great stuff
+lorem
+```
+
+renders to
+```md
+<section id="great-stuff">
+  <h1 id="great-stuff">great stuff</h1>
+  <p>lorem</p>
+</section>
+```
 
 [anchor]: https://github.com/valeriangalliat/markdown-it-anchor
