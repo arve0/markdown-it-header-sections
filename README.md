@@ -1,5 +1,5 @@
-# markdown-it header sections
-
+# markdown-it-header-sections
+[![Build Status](https://travis-ci.org/arve0/markdown-it-header-sections.svg)](https://travis-ci.org/arve0/markdown-it-header-sections)
 Renders this markdown
 ```md
 # Header 1
