@@ -33,28 +33,32 @@ to this output (without indentation)
 </section>
 ```
 
-If you add [anchor] or any plugin that adds attributes to header-tokens, sections will have the same attributes (which is useful for styling).
+If you add [attrs], [anchor] or any other plugin that adds attributes to header-tokens, sections will have the same attributes (which is useful for styling).
 
-E.g., with [anchor] enabled before header-sections:
+E.g., with [attrs] enabled before header-sections:
 
 ```js
 var md = require('markdown-it')()
-  .use(require('markdown-it-anchor'))
+  .use(require('markdown-it-attrs'))
   .use(require('markdown-it-header-sections'))
 ```
 
 this markdown
 ```md
-# great stuff
+# great stuff {.jumbotron}
 lorem
+
+click me {.btn .btn-default}
 ```
 
 renders to
 ```md
-<section id="great-stuff">
-  <h1 id="great-stuff">great stuff</h1>
+<section class="jumbotron">
+  <h1 class="jumbotron">great stuff</h1>
   <p>lorem</p>
+  <p class="btn btn-default">click me</p>
 </section>
 ```
 
+[attrs]: https://github.com/arve0/markdown-it-attrs
 [anchor]: https://github.com/valeriangalliat/markdown-it-anchor

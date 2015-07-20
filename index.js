@@ -50,7 +50,7 @@ module.exports = function headerSections(md){
     state.tokens = tokens;
   }
 
-  md.core.ruler.push('header sections', addSections);
+  md.core.ruler.push('header_sections', addSections);
 
 };
 

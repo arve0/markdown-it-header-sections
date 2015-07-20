@@ -6,7 +6,7 @@
   "dependencies": {},
   "devDependencies": {
     "markdown-it": "^4.4.0",
-    "markdown-it-anchor": "^2.2.0",
+    "markdown-it-attrs": "0.0.2",
     "mocha": "^2.2.5",
     "multiline": "^1.0.2"
   },

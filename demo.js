@@ -1,7 +1,14 @@
 
-
+var ml = require('multiline');
 var md = require('markdown-it')()
-  .use(require('markdown-it-anchor'))
-  .use(require('./'))
+  .use(require('markdown-it-attrs'))
+  .use(require('./'));
 
-console.log(md.render("# 11 \n ### 22 \n ## 33"))
+var src = ml(function(){/*
+# great stuff {.jumbotron}
+lorem
+
+click me {.btn .btn-default}
+*/});
+
+console.log(md.render(src));

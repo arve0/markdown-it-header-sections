@@ -30,16 +30,20 @@ describe('markdown-it-header-sections', function(){
   });
 
   it('should add header attributes from other plugins', function(){
+    var src = multiline.stripIndent(function(){/*
+      # header {#id}
+      lorem
+    */});
     var expected = multiline.stripIndent(function(){/*
-      <section id="header">
-      <h1 id="header">header</h1>
+      <section id="id">
+      <h1 id="id">header</h1>
       <p>lorem</p>
       </section>
 
     */});
-    md.use(require('markdown-it-anchor'));
+    md.use(require('markdown-it-attrs'));
     md.use(headerSections);
-    var res = md.render(simpleSrc);
+    var res = md.render(src);
     assert.equal(expected, res);
   });
 
