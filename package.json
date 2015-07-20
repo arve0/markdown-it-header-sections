@@ -12,6 +12,7 @@
   },
   "scripts": {
     "test": "mocha test.js",
+    "prepublish": "mocha test.js",
     "postpublish": "echo Tagging v$npm_package_version; git tag v$npm_package_version; git push --tags"
   },
   "repository": {
