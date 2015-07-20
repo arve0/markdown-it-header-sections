@@ -6,10 +6,12 @@
   "dependencies": {},
   "devDependencies": {
     "markdown-it": "^4.4.0",
-    "markdown-it-anchor": "^2.2.0"
+    "markdown-it-anchor": "^2.2.0",
+    "mocha": "^2.2.5",
+    "multiline": "^1.0.2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test.js"
   },
   "repository": {
     "type": "git",
