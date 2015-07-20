@@ -1,14 +1,13 @@
 {
   "name": "markdown-it-header-sections",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "add sections to markdown headers",
   "main": "index.js",
-  "dependencies": {
-    "markdown-it-for-inline": "^0.1.1",
-    "lodash.assign": "^3.2.0",
-    "markdown-it": "^4.4.0"
+  "dependencies": {},
+  "devDependencies": {
+    "markdown-it": "^4.4.0",
+    "markdown-it-anchor": "^2.2.0"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
