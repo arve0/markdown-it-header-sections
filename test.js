@@ -103,5 +103,27 @@ describe('markdown-it-header-sections', function(){
     var res = md.render(src);
     assert.equal(expected, res);
   });
+  it('should parse incorrect order of headers', function(){
+    var src = multiline.stripIndent(function(){/*
+      #### Header 4
+      Text.
+      ### Header 3
+      Hello!
+    */});
+    var expected = multiline.stripIndent(function(){/*
+      <section>
+      <h4>Header 4</h4>
+      <p>Text.</p>
+      <section>
+      <h3>Header 3</h3>
+      <p>Hello!</p>
+      </section>
+      </section>
+
+    */});
+    md.use(headerSections);
+    var res = md.render(src);
+    assert.equal(expected, res);
+  });
 
 });
