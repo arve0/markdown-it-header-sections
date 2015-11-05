@@ -22,7 +22,7 @@ module.exports = function headerSections(md){
 
     function closeSections(from, to) {
       // close one below to
-      while (from !== (to-1)) {
+      while (from > (to-1)) {
         tokens.push(closeSection());
         from--;
       }
