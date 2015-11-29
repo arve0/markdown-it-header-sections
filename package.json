@@ -5,8 +5,8 @@
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
-    "markdown-it": "^4.4.0",
-    "markdown-it-attrs": "0.0.2",
+    "markdown-it": "^5.0.2",
+    "markdown-it-attrs": "^0.1.3",
     "mocha": "^2.2.5",
     "multiline": "^1.0.2"
   },
