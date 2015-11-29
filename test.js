@@ -32,7 +32,7 @@ describe('markdown-it-header-sections', function(){
     */});
     md.use(headerSections);
     var res = md.render(simpleSrc);
-    assert.equal(expected, res);
+    assert.equal(res, expected);
   });
 
   it('should add header attributes from other plugins', function(){
@@ -50,7 +50,7 @@ describe('markdown-it-header-sections', function(){
     md.use(require('markdown-it-attrs'));
     md.use(headerSections);
     var res = md.render(src);
-    assert.equal(expected, res);
+    assert.equal(res, expected);
   });
 
   it('should close sections when a new header is of same or lower level', function(){
@@ -73,8 +73,9 @@ describe('markdown-it-header-sections', function(){
     */});
     md.use(headerSections);
     var res = md.render(src);
-    assert.equal(expected, res);
+    assert.equal(res, expected);
   });
+
   it('should nest sections', function(){
     var src = multiline.stripIndent(function(){/*
       # Header 1
@@ -107,8 +108,9 @@ describe('markdown-it-header-sections', function(){
     */});
     md.use(headerSections);
     var res = md.render(src);
-    assert.equal(expected, res);
+    assert.equal(res, expected);
   });
+
   it('should parse incorrect order of headers', function(){
     var src = multiline.stripIndent(function(){/*
       #### Header 4
@@ -120,16 +122,38 @@ describe('markdown-it-header-sections', function(){
       <section>
       <h4>Header 4</h4>
       <p>Text.</p>
+      </section>
       <section>
       <h3>Header 3</h3>
       <p>Hello!</p>
-      </section>
       </section>
 
     */});
     md.use(headerSections);
     var res = md.render(src);
-    assert.equal(expected, res);
+    assert.equal(res, expected);
   });
 
+  it('should close sections when a new header is of same level', function(){
+    var src = multiline.stripIndent(function(){/*
+      ### asdf
+      lorem
+      ### fdsa
+      ipsum
+    */});
+    var expected = multiline.stripIndent(function(){/*
+      <section>
+      <h3>asdf</h3>
+      <p>lorem</p>
+      </section>
+      <section>
+      <h3>fdsa</h3>
+      <p>ipsum</p>
+      </section>
+
+    */});
+    md.use(headerSections);
+    var res = md.render(src);
+    assert.equal(res, expected);
+  });
 });
