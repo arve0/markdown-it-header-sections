@@ -133,6 +133,36 @@ describe('markdown-it-header-sections', function(){
     var res = md.render(src);
     assert.equal(res, expected);
   });
+  it('should handle sections in list', function(){
+    var src = multiline.stripIndent(function(){/*
+      - foo
+        ### Header 2
+        Lorem?
+      - bar
+        ## Last header
+        Markdown rules!
+    */});
+    var expected = multiline.stripIndent(function(){/*
+      <ul>
+      <li>foo
+      <section>
+      <h3>Header 2</h3>
+      Lorem?
+      </section>
+      </li>
+      <li>bar
+      <section>
+      <h2>Last header</h2>
+      Markdown rules!
+      </section>
+      </li>
+      </ul>
+
+    */});
+    md.use(headerSections);
+    var res = md.render(src);
+    assert.equal(expected, res);
+  });
 
   it('should close sections when a new header is of same level', function(){
     var src = multiline.stripIndent(function(){/*
