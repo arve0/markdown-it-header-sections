@@ -27,6 +27,13 @@ module.exports = function headerSections(md) {
       }
     }
 
+    function closeSectionsToCurrentNesting(nesting) {
+      while (last(sections) && nesting < last(sections).nesting) {
+        sections.pop();
+        tokens.push(closeSection());
+      }
+    }
+
     function closeAllSections() {
       while (sections.pop()) {
         tokens.push(closeSection());
@@ -39,6 +46,9 @@ module.exports = function headerSections(md) {
       // record level of nesting
       if (token.type.search('heading') !== 0) {
         nestedLevel += token.nesting;
+      }
+      if (last(sections) && nestedLevel < last(sections).nesting) {
+        closeSectionsToCurrentNesting(nestedLevel);
       }
 
       // add sections before headers

@@ -147,21 +147,19 @@ describe('markdown-it-header-sections', function(){
       <li>foo
       <section>
       <h3>Header 2</h3>
-      Lorem?
-      </section>
+      Lorem?</section>
       </li>
       <li>bar
       <section>
       <h2>Last header</h2>
-      Markdown rules!
-      </section>
+      Markdown rules!</section>
       </li>
       </ul>
 
     */});
     md.use(headerSections);
     var res = md.render(src);
-    assert.equal(expected, res);
+    assert.equal(res, expected);
   });
 
   it('should close sections when a new header is of same level', function(){
