@@ -4,6 +4,12 @@ var Md = require('markdown-it');
 var multiline = require('multiline');
 var headerSections = require('./');
 
+var origEqual = assert.equal;
+assert.equal = function(actual, expected) {
+  var r = /\r/g
+  return origEqual(actual.replace(r, ''), expected.replace(r, ''));
+}
+
 describe('markdown-it-header-sections', function(){
 
   var md;
