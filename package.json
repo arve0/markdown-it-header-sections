@@ -1,6 +1,6 @@
 {
   "name": "markdown-it-header-sections",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "add sections to markdown headers",
   "main": "index.js",
   "dependencies": {},
