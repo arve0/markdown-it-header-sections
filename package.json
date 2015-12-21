@@ -11,9 +11,9 @@
     "multiline": "^1.0.2"
   },
   "scripts": {
-    "test": "mocha test.js",
-    "prepublish": "mocha test.js",
-    "postpublish": "echo Tagging v$npm_package_version; git tag v$npm_package_version; git push --tags"
+    "test": "mocha",
+    "prepublish": "mocha",
+    "postpublish": "git push && git push --tags"
   },
   "repository": {
     "type": "git",
@@ -28,5 +28,6 @@
   "bugs": {
     "url": "https://github.com/arve0/markdown-it-header-sections/issues"
   },
-  "homepage": "https://github.com/arve0/markdown-it-header-sections#readme"
+  "homepage": "https://github.com/arve0/markdown-it-header-sections#readme",
+  "tonicExampleFilename": "demo.js"
 }

@@ -60,5 +60,26 @@ renders to
 </section>
 ```
 
+## Install
+```
+npm install markdown-it-header-sections
+```
+
+## Usage
+```js
+var md = require('markdown-it')();
+md.use(require('markdown-it-header-sections'));
+
+var src = '# first header\n';
+src += 'lorem\n\n'
+src += '## second header\n';
+src += 'ipsum';
+
+console.log(md.render(src));
+```
+
+[demo as jsfiddle](https://jsfiddle.net/arve0/5dn54cow/1/)
+
+
 [attrs]: https://github.com/arve0/markdown-it-attrs
 [anchor]: https://github.com/valeriangalliat/markdown-it-anchor
