@@ -37,12 +37,12 @@ describe('markdown-it-header-sections', function(){
 
   it('should add header attributes from other plugins', function(){
     var src = multiline.stripIndent(function(){/*
-      # header {#id}
+      # header {.red}
       lorem
     */});
     var expected = multiline.stripIndent(function(){/*
-      <section id="id">
-      <h1 id="id">header</h1>
+      <section class="red">
+      <h1 class="red">header</h1>
       <p>lorem</p>
       </section>
 
@@ -180,6 +180,24 @@ describe('markdown-it-header-sections', function(){
       </section>
 
     */});
+    md.use(headerSections);
+    var res = md.render(src);
+    assert.equal(res, expected);
+  });
+
+  it('should move, not copy, ID from header', function(){
+    var src = multiline.stripIndent(function(){/*
+      # asdf {#asdf}
+      qwerty
+    */});
+    var expected = multiline.stripIndent(function(){/*
+      <section id="asdf">
+      <h1>asdf</h1>
+      <p>qwerty</p>
+      </section>
+
+    */});
+    md.use(require('markdown-it-attrs'));
     md.use(headerSections);
     var res = md.render(src);
     assert.equal(res, expected);

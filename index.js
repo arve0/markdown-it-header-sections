@@ -10,7 +10,7 @@ module.exports = function headerSections(md) {
     function openSection(attrs) {
       var t = new Token('section_open', 'section', 1);
       t.block = true;
-      t.attrs = attrs;
+      t.attrs = attrs && attrs.map(attr => [attr[0], attr[1]]);  // copy
       return t;
     }
 
@@ -61,6 +61,10 @@ module.exports = function headerSections(md) {
           closeSections(section);
         }
         tokens.push(openSection(token.attrs));
+        if (token.attrIndex('id') !== -1) {
+          // remove ID from token
+          token.attrs.splice(token.attrIndex('id'), 1);
+        }
         sections.push(section);
       }
 
