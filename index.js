@@ -10,7 +10,7 @@ module.exports = function headerSections(md) {
     function openSection(attrs) {
       var t = new Token('section_open', 'section', 1);
       t.block = true;
-      t.attrs = attrs && attrs.map(attr => [attr[0], attr[1]]);  // copy
+      t.attrs = attrs && attrs.map(function (attr) { return [attr[0], attr[1]] });  // copy
       return t;
     }
 
